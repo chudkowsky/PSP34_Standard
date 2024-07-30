@@ -3,12 +3,24 @@
 > ### [Prerequisites](#prerequisites)
 > ### [Setting up enviroment](#setting-up-enviroment)
 > ### [Setting up AlephZero Wallet](#setting-up-alephwallet)
-> ###  [Compiling and deploying the contract](#compiling-and-deploying-the-contract)
-> ### [Setting up IPFS](#setting-up-ipfs)
+> ###  [Compiling and deploying the contract](#compiling-and-deploying-the-contract-1)
+> ### [Setting up IPFS](#setting-up-ipfs-1)
 > ###  [Adding files to IPFS](#adding-files-to-ipfs)  
 
 ## Prerequisites
-Asdf, Go, Ink, Rust, Ipfs (kubo)
+
+- ### Rust: A systems programming language focused on safety, speed, and concurrency, widely used for building performance-critical applications.
+
+- ### Ink: A Rust-based smart contract language designed for use with the Substrate blockchain framework, providing a way to write and deploy smart contracts.
+
+- ### asdf: A version manager for multiple programming languages, allowing you to easily install and manage different versions of languages and tools.
+
+- ### Go: An open-source programming language designed for simplicity and efficiency, often used for building scalable web applications and network servers.
+
+- ### IPFS (Kubo): The InterPlanetary File System, a decentralized file storage protocol that allows you to store and share files across a distributed network.
+
+#### These tools and languages are necessary for setting up your development environment, writing and deploying smart contracts, and storing files on a decentralized network.
+
 ## Setting up enviroment
 ### Installing Rust
 To download Rustup and install Rust, run the following in your terminal, then follow the on-screen instructions.
@@ -25,9 +37,20 @@ In addition to Rust, installation requires a C++ compiler that supports C++17. M
     `rustup run $TOOLCHAIN_VERSION cargo install cargo-dylint dylint-link`  
 
 ### Installing adsf 
-
+To install asdf we first need:
+1. `git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0`
+2.  `mkdir ~/.bashrc.d`
+3. Open that file with editor (Vim/Nano), in this example vim:  
+    `vim ~/.bashrc.d/asdf.rc`
+    and place this two commands there:  
+    `. "$HOME/.asdf/asdf.sh"`   
+    `. "$HOME/.asdf/completions/asdf.bash"`   
+4. Check if installation was succesful:  
+    `asdf --version`
 ### Installing Go language
-
+    `asdf plugin add golang`
+    `asdf install golang latest`
+    `asdf global golang latest`
 ### Install IPFS (kubo) 
 Once we succesfully installed Go language we can proceed to installing IPFS
 1. Download the Linux binary  
