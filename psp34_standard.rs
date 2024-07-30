@@ -1,6 +1,7 @@
 pub mod manager {
     use crate::{data::Id, metadata, Error};
     use ink::prelude::string::ToString;
+    use ink::prelude::format;
     use ink::{
         prelude::{string::String, vec::Vec},
         storage::Mapping,
@@ -141,9 +142,7 @@ pub mod manager {
                     token_uri = value_in_string;
                 }
             }
-
-            token_uri = token_uri + &token_id.to_string() + &String::from(".json");
-            token_uri
+            format!("{}{}.json", token_uri, token_id)
         }
 
         fn add_attribute_name(&mut self, attribute_input: &Vec<u8>) -> Result<(), Error> {

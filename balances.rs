@@ -47,17 +47,18 @@ pub mod balance_manager {
         }
 
         pub fn decrease_balance(&mut self, owner: &AccountId, _id: &Id, decrease_supply: bool) {
-            let from_balance = self.balance_of(owner);
-            if from_balance <= 1 {
-                self.owned_tokens_count.remove(owner);
+            let from_balance :u32 = self.balance_of(owner);
+            if let Some(new_balance) = from_balance.checked_sub(1) {
+                self.owned_tokens_count.insert(owner, &new_balance);
             } else {
-                self.owned_tokens_count.insert(owner, &(from_balance - 1));
+                self.owned_tokens_count.remove(owner);
             }
             if decrease_supply {
-                self.total_supply -= 1;
+                if let Some(new_total_supply) = self.total_supply.checked_sub(1) {
+                    self.total_supply = new_total_supply;
+                }
             }
         }
-
         pub fn total_supply(&self) -> u128 {
             self.total_supply
         }
