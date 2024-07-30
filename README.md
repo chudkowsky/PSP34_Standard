@@ -79,7 +79,8 @@ After compilation proccess generates 3 files and saves them in `alephzero-nft/al
 `export SEED="<your wallet 12 word seed phrase>"`  
 `export URL="wss://ws.test.azero.dev"` 
 `export WALLET_ADDRESS = <your wallet address>`
-
+`export NAME = <identifier that gives the token a distinct and recognizable title>`
+`export SYMBOL = <short string of characters that represents the NFT collection> `
 3. After setuping envs we can run deployment script, make sure you are in proper directory: `alephzero-nft/alephzero_nft`  
 `./scripts/deploy.sh`
 
